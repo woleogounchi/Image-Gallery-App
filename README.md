@@ -6,7 +6,7 @@ In this project, we will be using **React.js** in order to build an image galler
 * Use React Router to set up routes for three default topic pages and a search page.
 * Use the Fetch API or a tool like Axios to fetch data from the Flickr API and use it to display images in your app.
 * Add logic to handle the search and various requirements of the project.
-* Add to the supplied CSS to personalize the project
+* Add to the supplied CSS to personalize the project.
 
 
 
