@@ -1,6 +1,6 @@
 import React from 'react';
 import Photo from './Photo';
-import NotFound from './NotFound';
+import NotFound from './NoPhoto';
 
 const PhotoContainer = props => { 
   
@@ -9,7 +9,7 @@ const PhotoContainer = props => {
   if (results.length) {
     photos = results.map(photo => <Photo url={photo.images.fixed_height.url} key={photo.id} />);    
   } else {
-    gifs = <NotFound />
+    gifs = <NoPhoto />
   }
 
   return(
