@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter,
+  Redirect,
   Route,
   Switch
 } from 'react-router-dom';
-import './App.css';
 import axios from 'axios';
-import config from './config';
-import SearchForm from './Components/SearchForm';
-import GifList from './Components/PhotoContainer';
+
+// Import components
+import './style/App.css';
+import apiKey from './config';
+import SearchForm from './components/SearchForm';
+import Nav from './components/Nav';
+import PhotoContainer from './components/PhotoContainer';
 
 export default class App extends Component {
   
@@ -25,10 +29,10 @@ export default class App extends Component {
   }
   
   performSearch = (query = 'cats') => {
-    axios.get(`API LINK GOES HERE`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
-          photos: response.photos.photo,
+          photos: response.data.photos.photo,
           loading: false
         });
       })
@@ -46,14 +50,14 @@ export default class App extends Component {
             <div className="inner">
               <h1 className="main-title">Gallery App</h1>
               <SearchForm onSearch={this.performSearch} />      
-              <Nav />      
+              <Nav onClick={this.performSearch}/>      
             </div>   
           </div>    
           <div className="main-content">
             {
               (this.state.loading)
               ? <p>Loading...</p>
-              : <PhotoContainer data={this.state.photos} />
+              : 
               <Switch>
                 <Route exact path="/" render={ () => <Redirect to={`/search/cats`} />} />
                 <Route exact path="/search/:query" render={(props) => <PhotoContainer {...props} photos={this.state.photos} />} />
@@ -61,7 +65,7 @@ export default class App extends Component {
               </Switch>
             }          
           </div>
-      </div>
+        </div>
       </BrowserRouter>
     );
   }
