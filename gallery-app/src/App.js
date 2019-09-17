@@ -26,6 +26,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.performSearch();
+    document.title = "Anthony's Gallery App";
   }
   
   performSearch = (query = 'cats') => {
@@ -50,7 +51,7 @@ export default class App extends Component {
             <div className="inner">
               <h1 className="main-title">Gallery App</h1>
               <SearchForm onSearch={this.performSearch} />      
-              <Nav onClick={this.performSearch}/>      
+              <Nav performSearch={this.performSearch}/>      
             </div>   
           </div>    
           <div className="main-content">
@@ -60,7 +61,7 @@ export default class App extends Component {
               : 
               <Switch>
                 <Route exact path="/" render={ () => <Redirect to={`/search/cats`} />} />
-                <Route exact path="/search/:query" render={(props) => <PhotoContainer {...props} photos={this.state.photos} />} />
+                <Route exact path="/search/:query" render={ props => <PhotoContainer {...props} photos={this.state.photos} /> } />
                 <Route />
               </Switch>
             }          

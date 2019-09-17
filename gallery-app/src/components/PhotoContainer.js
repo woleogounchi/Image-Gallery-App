@@ -1,3 +1,5 @@
+import {withRouter} from 'react-router-dom';
+
 import React from 'react';
 import Photo from './Photo';
 import NoPhoto from './NoPhoto';
@@ -16,11 +18,16 @@ const PhotoContainer = props => {
     photos = <NoPhoto />
   }
 
+  const pageTitle = props.location.pathname.slice(8);
+  
   return(
-    <ul className="photo-container">
-      {photos}
-    </ul> 
+    <div className="photo-container">
+      <h2>{pageTitle}</h2>
+      <ul>
+        {photos}
+      </ul> 
+    </div>
   );
 }
 
-export default PhotoContainer;
+export default withRouter(PhotoContainer);
