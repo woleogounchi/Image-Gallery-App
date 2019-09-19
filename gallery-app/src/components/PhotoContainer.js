@@ -5,7 +5,7 @@ import Photo from './Photo';
 import NoPhoto from './NoPhoto';
 
 const PhotoContainer = props => { 
-  
+  // Based on our request result length render each photo or a not found message otherwise 
   const results = props.photos;
   let photos;
   if (results.length) {
@@ -17,7 +17,7 @@ const PhotoContainer = props => {
   } else {
     photos = <NoPhoto />
   }
-
+  // Set the page title based on the current page's url
   const pageTitle = props.location.pathname.slice(8);
   
   return(

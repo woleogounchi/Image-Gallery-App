@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {withRouter} from 'react-router-dom';
 
 class SearchForm extends Component {
-  
+  // Set the search bar innerText as empty at the beginning 
   state = {
     searchText: ''
   }
@@ -17,7 +17,7 @@ class SearchForm extends Component {
   onSearchChange = e => {
     this.setState({ searchText: e.target.value });
   }
-  
+  // Function that submits the query entered in the search box and the adds the query string into the url path 
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);

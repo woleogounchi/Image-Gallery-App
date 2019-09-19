@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 class Nav extends Component {
-
+  // Request the data based on the navbar buttons innerText 
   performSearch = e => this.props.performSearch(e.target.innerText);
 
   render() {

@@ -8,7 +8,8 @@ In this project, we will be using **React.js** in order to build an image galler
 * Add logic to handle the search and various requirements of the project.
 * Add to the supplied CSS to personalize the project.
 
-
+In order to use the app, a *config.js* file has to be set up, containing the API key to access the data. Therefore, to get a key, you have to apply for a non-commercial API key. 
+Note that the *config.js* file has to be stored in the **gitignore** file so it won’t be committed to your github repository. This will also prevent your keys and tokens from getting posted publicly to GitHub. It is very important that you do NOT upload any of your personal API keys / secrets / passwords to Github or other publicly accessible place.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

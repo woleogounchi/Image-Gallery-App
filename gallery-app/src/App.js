@@ -28,7 +28,7 @@ export default class App extends Component {
     this.performSearch();
     document.title = "Anthony's Gallery App";
   }
-  
+  // The function that returns our request based on the query in the Flickr API
   performSearch = (query = 'cats') => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -41,7 +41,7 @@ export default class App extends Component {
         console.log('Error fetching and parsing data', error);
       });    
   }
-  
+  // Render the data based on the components
   render() { 
     console.log(this.state.photos);
     return (
